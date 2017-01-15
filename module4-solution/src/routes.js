@@ -32,13 +32,13 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   })
 
   .state('items', {
-    url: '/items/{categoryId}',
+    url: '/items/{categoryShortName}',
     templateUrl: 'src/menuapp/templates/items.template.html',
     controller: 'CategoryItemsController as itemsCtrl',
     resolve: {
       item: ['$stateParams', 'MenuDataService',
             function ($stateParams, MenuDataService) {
-              return MenuDataService.getItemsForCategory($stateParams.categoryId);
+              return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
             }]
     }
   });
