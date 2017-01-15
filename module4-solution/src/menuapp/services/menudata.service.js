@@ -17,12 +17,12 @@ angular.module('data')
 
           return response;
   };
-        service.getItemsForCategory = function (categoryId) {
+        service.getItemsForCategory = function (categoryShortName) {
             var response = $http({
                 method: "GET",
                 url: (ApiBasePath + "/menu_items.json"),
                 params: {
-                    id: categoryId
+                    category: categoryShortName
                 }
             });
 
